@@ -17,6 +17,6 @@ git clone "$NESTJS_REPO_URL" "$NESTJS_PROJECT_DIR"
 echo "Cloning Frontend folder from GitHub..."
 git clone "$REACTJS_REPO_URL" "$REACTJS_PROJECT_DIR"
 
-psql "CREATE DATABASE notes;"
+psql -c "CREATE DATABASE notes;"
 
 
