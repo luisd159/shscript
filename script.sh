@@ -17,11 +17,7 @@ git clone "$NESTJS_REPO_URL" "$NESTJS_PROJECT_DIR"
 echo "Cloning Frontend folder from GitHub..."
 git clone "$REACTJS_REPO_URL" "$REACTJS_PROJECT_DIR"
 
-# initializing postgresql
-echo "initializing PostgreSQL..."
-brew services start postgresql
-
-# Name For DataBase
+# Creating DataBase
 DB_NAME="notes"
 
 # SQL commands for verifications
