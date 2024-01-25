@@ -31,22 +31,3 @@ WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = '$DB_NAME')\gexec"
 # Connect to postresql and run the commands
 psql -c "$SQL_CHECK_CREATE_DB"
 
-
-# initializing backend
-echo "Waiting for backend server..."
-cd "$NESTJS_PROJECT_DIR"
-npm install
-npm run start:dev & 
-
-# waiting for backend
-echo "Witing for backend server..."
-sleep 10
-
-# initializing frontend
-echo "Waiting for frontend server..."
-cd "../$REACTJS_PROJECT_DIR"
-npm install
-npm start &
-
-# keep code working
-wait
