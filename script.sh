@@ -19,7 +19,7 @@ git clone "$REACTJS_REPO_URL" "$REACTJS_PROJECT_DIR"
 
 # initializing postgresql
 echo "initializing PostgreSQL..."
-sudo service postgresql start
+brew services start postgresql
 
 # Name For DataBase
 DB_NAME="notes"
