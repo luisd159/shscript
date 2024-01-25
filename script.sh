@@ -17,20 +17,6 @@ git clone "$NESTJS_REPO_URL" "$NESTJS_PROJECT_DIR"
 echo "Cloning Frontend folder from GitHub..."
 git clone "$REACTJS_REPO_URL" "$REACTJS_PROJECT_DIR"
 
-DB_NAME="notes"
+psql CREATE DATABASE notes;
 
-# Comando SQL para verificar y crear la base de datos si no existe
-SQL_CHECK_CREATE_DB="
-DO \$\$
-BEGIN
-    IF NOT EXISTS (SELECT 1 FROM pg_database WHERE datname = '$DB_NAME') THEN
-        PERFORM dblink_connect('dbname=postgres');
-        PERFORM dblink_exec('CREATE DATABASE $DB_NAME');
-    END IF;
-END
-\$\$;
-"
-
-# Ejecutar el comando usando psql
-psql -d postgres -c "$SQL_CHECK_CREATE_DB"
 
